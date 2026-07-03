@@ -256,10 +256,10 @@
     // ==========================================
     // 🛠️ 設定・データエリア
     // ==========================================
-    const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxLYg7_wLFkfImZOtQ-pYxj-wSs3JkoRPXxBk7ThWIz-DTexgEbNtZZHX8B59D_jDYY/exec"; 
+  　const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbydm7uz0pQxvGmzzVGogwewBb9E700HY8nxTKjks2naK58geXBD2SHj2CDn0mCdvenU/exec"; 
     const SUBJECT_NAME = "歴史";
     const PAGE_NAME = "119戦乱の世を終わらせたものは何だろう";
-    const QUIZ_ID = "main_text"; // 固定のテキストID
+    const QUIZ_ID = "main_text"; // 固定 of テキストID
     const LAYOUT_NAME = "リーディング・リスニング";
 
     let isSubmitting = false;
@@ -286,24 +286,29 @@
         fetchCounts();
     });
 
-    // カウントの取得処理 (doGetへのアクセス)
-    function fetchCounts() {
-        const url = `${WEB_APP_URL}?page=${encodeURIComponent(PAGE_NAME)}`;
-        
-        fetch(url)
-        .then(response => response.json())
-        .then(data => {
-            if (data.status === "success") {
-                document.getElementById('count-read').innerText = data.readCount;
-                document.getElementById('count-listen').innerText = data.listenCount;
-            } else {
-                setCounterError();
-            }
-        })
-        .catch(err => {
-            console.error(err);
+    // 【★追加】GASから返ってきたカウントデータを受け取る関数
+    window.handleCountResponse = function(data) {
+        if (data && data.status === "success") {
+            document.getElementById('count-read').innerText = data.readCount;
+            document.getElementById('count-listen').innerText = data.listenCount;
+        } else {
             setCounterError();
-        });
+        }
+    };
+
+    // 【★書き換え】カウントの取得処理 (JSONP方式に変更)
+    function fetchCounts() {
+        const url = `${WEB_APP_URL}?page=${encodeURIComponent(PAGE_NAME)}&callback=handleCountResponse`;
+        
+        // scriptタグを動的に生成して通信を成立させる
+        const script = document.createElement('script');
+        script.src = url;
+        script.onerror = () => {
+            setCounterError();
+        };
+        
+        document.body.appendChild(script);
+        document.body.removeChild(script); // 実行後にタグを削除
     }
 
     function setCounterError() {
@@ -346,7 +351,3 @@
             isSubmitting = false;
         });
     }
-</script>
-
-</body>
-</html>
