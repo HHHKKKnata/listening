@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>歴史学習：戦乱の世を終わらせたものは何だろう / 朝鮮侵略</title>
+    <style>
+        /* --- 北欧風ペールトーンスタイル --- */
+        :root {
+            --bg-color: #f7f9fa;
+            --container-bg: #ffffff;
+            --primary-color: #8fa89b; /* 優しいサージグリーン */
+            --accent-color: #d1a18c;  /* くすみテラコッタ */
+            --text-color: #4a5257;    /* 深みのあるチャコールグレー */
+            --text-muted: #70797e;
+            --border-color: #e4ebed;
+        }
+
+        body {
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.8;
+            letter-spacing: 0.03em;
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* リーディングモード検知用コンテナ */
+        .container {
+            max-width: 720px;
+            width: 100%;
+            background-color: var(--container-bg);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+            border: 1px solid var(--border-color);
+        }
+
+        header {
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 20px;
+            margin-bottom: 32px;
+        }
+
+        h1 {
+            font-size: 1.6rem;
+            color: var(--text-color);
+            margin: 0 0 8px 0;
+            font-weight: 600;
+        }
+
+        .subtitle {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin: 0 0 12px 0;
+        }
+
+        /* 💡 ページ上部：カウンター表示エリア */
+        .counter-panel {
+            background-color: #f0f4f2;
+            border-radius: 8px;
+            padding: 10px 15px;
+            font-size: 0.9rem;
+            color: #55605a;
+            display: inline-block;
+            font-weight: bold;
+            border: 1px solid #d2ded7;
+        }
+        .counter-val {
+            color: #047857;
+            font-size: 1.1rem;
+            margin: 0 4px;
+        }
+
+        /* セクションヘッダー */
+        .section-title {
+            font-size: 1.25rem;
+            color: var(--primary-color);
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            border-left: 4px solid var(--primary-color);
+            padding-left: 10px;
+        }
+
+        /* 視覚表示エリア */
+        .text-section p {
+            margin-bottom: 24px;
+            font-size: 1.05rem;
+            text-align: justify;
+        }
+
+        .text-section strong {
+            color: var(--accent-color);
+            background: linear-gradient(transparent 70%, #f3e5e0 70%);
+            padding: 0 2px;
+            font-weight: bold;
+        }
+
+        /* 区切り線（ボーダー） */
+        .section-border {
+            border: 0;
+            border-top: 1px solid var(--border-color);
+            margin: 32px 0;
+        }
+        
+        .item-border {
+            border: 0;
+            border-top: 1px dashed var(--border-color);
+            margin: 24px 0;
+        }
+
+        /* 💡 ページ下部：学習記録アクションエリア */
+        .action-panel {
+            background: #fafafa;
+            border: 2px solid var(--border-color);
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+            margin-top: 40px;
+        }
+        .action-title {
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+        .judge-actions {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+        }
+        .action-btn {
+            flex: 1; padding: 14px; border: none; border-radius: 10px;
+            font-family: inherit; font-weight: bold; cursor: pointer; color: white;
+            text-align: center; font-size: 0.95rem; transition: transform 0.1s;
+        }
+        .btn-read { background: #8fa89b; box-shadow: 0 4px 0 #6e8579; }
+        .btn-listen { background: #d1a18c; box-shadow: 0 4px 0 #b38470; }
+        .action-btn:active { transform: translateY(3px); box-shadow: 0 1px 0 transparent; }
+        
+        .status-badge {
+            display: block; margin-top: 12px; font-size: 0.8rem; font-weight: bold; color: var(--text-muted);
+        }
+
+        /* 聴覚・読み上げ専用エリア（CSSハックにより完全隠蔽、アクセシビリティのみ100%検知） */
+        .speech-only {
+            position: absolute;
+            color: transparent;
+            font-size: 0px;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
+
+        /* レスポンシブ */
+        @media (max-width: 480px) {
+            body {
+                padding: 20px 12px;
+            }
+            .container {
+                padding: 24px 20px;
+            }
+            h1 {
+                font-size: 1.3rem;
+            }
+            .judge-actions {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<article class="container">
+    <header>
+        <h1>119ページ：戦乱の世を終わらせたものは何だろう</h1>
+        <p class="subtitle">歴史学習：朝鮮侵略と豊臣政権の没落</p>
+        
+        <div class="counter-panel">
+            📊 これまでの学習記録：
+            読んだ <span id="count-read" class="counter-val">確認中...</span> 回 / 
+            聞いた <span id="count-listen" class="counter-val">確認中...</span> 回
+        </div>
+    </header>
+
+    <div class="text-section" aria-hidden="true">
+        <section>
+            <h2 class="section-title">教科書本文</h2>
+            <p>秀吉は、キリスト教に対して警戒をしましたが、海外との貿易には強い関心を持ちました。商人が東南アジアへ渡航することをすすめ、倭寇などの海賊をとりしまる命令を出して貿易船の安全を図りました。また、秀吉は東アジアの支配を目指し、朝鮮・高山国・ルソンなどに服属を求めました。</p>
+            <p>そして、1592年には、明の征服を目指し、諸大名に命じて、約15万人の大軍を朝鮮に派遣しました。これが、<strong>文禄の役</strong>です。 軍勢は、首都<strong>漢城</strong>、現在のソウルを占領して朝鮮北部まで進みましたが、明の援軍におしもどされました。また、各地で朝鮮の民衆による抵抗運動が起こり、海戦でも苦戦しました。</p>
+            <p>そこで、明との間で講和の交渉が始まり、明の使節が来日しました。しかし、講和は成立せず、1597年に再び戦いが始まりました。これが、<strong>慶長の役</strong>です。 日本は苦戦し、1598年に秀吉が病死したのをきっかけに、軍勢を引きあげました。</p>
+            <p>7年にわたる戦いで、戦場となった朝鮮は荒廃し、日本に連行される人もいました。日本の武士や農民も重い負担に苦しみ、豊臣氏が没落する原因となりました。</p>
+        </section>
+
+        <hr class="section-border">
+
+        <section>
+            <h2 class="section-title">重要キーワード・資料解説</h2>
+            
+            <p>まずは、絶対に間違えたくない最重要キーワードの3つです。頭の中で文字をイメージしてみてくださいね。 1つ目は、1回目に派遣した15万人の大軍、1592年の出来事が文禄の役です。 2つ目は、その1回目の時に一気に占領した朝鮮の首都、漢城です。漢字で「漢字の漢」に「お城の城」と書いて、かんじょう。現在のソウルにあたります。 3つ目は、交渉決裂して2回目に仕掛けた1597年の戦い、慶長の役です。 文禄が1回目、慶長が2回目です。この順番を頭の中で整理しておきましょう。</p>
+            
+            <hr class="item-border">
+            
+            <p>ここからは、先生が狙ってくる教科書の「資料やイラスト」のポイントをチェックしていきましょう。頭の中に教科書の景色を思い浮かべながら、質問に答えてみてくださいね。</p>
+            <p>教科書の右中央にある「名護屋城図」のイラストを思い出してみましょう。これ、名前は「なごやじょう」と読みますが、愛知県の名古屋城のことではありません。漢字は「名前の名」に「護衛の護」と書きます。 先生はここを狙ってきます。「秀吉が朝鮮出兵の拠点・指揮をとるために築いた城はどこですか？また何県にありますか？」 正解は、佐賀県にある名護屋城です。愛知県の名古屋城と引っかからないように気をつけましょう。</p>
+            
+            <hr class="item-border">
+            
+            <p>次は右下です。トゲトゲとした特徴的な船の写真が載っていますね。これが朝鮮水軍の「亀甲船」、これを率いたのが英雄「李舜臣」です。 テストではこう聞かれることがあります。「なぜ亀甲船はこのような形をしているのでしょうか？」 正解は、「甲板が鉄板などの装甲でおおわれていて、日本軍が飛び移ったり攻撃したりするのを防ぐため」です。この船の活躍によって、日本の水軍はとても苦戦することになりました。</p>
+            
+            <hr class="item-border">
+            
+            <p>ページ右上の地図を思い出してみましょう。1回目の「文禄の役」の矢印は、一気に漢城を抜けて、一番北の中国との国境近くまで長く伸びています。 それに対して、2回目の「慶長の役」のマークは、朝鮮半島の南側に固まっていますね。つまり、2回目は北まで進めず、南側でずっと足止めを食らい、苦戦したことがわかります。 「1回目は北まで進んだ、2回目は南側で足止めされた」という地図のイメージを、頭に焼き付けておきましょう。</p>
+            
+            <hr class="item-border">
+            
+            <p>ページ上部のコラムに、グレーっぽい白の渋い茶碗の写真が載っていますね。「薩摩焼」の茶碗です。 先生はここを記述問題で狙ってくる可能性が高いです。「秀吉の朝鮮侵略は、その後の日本の伝統文化にどのような影響を与えましたか？「陶工」という言葉を使って説明しなさい」。 正解は、「連れて帰られた朝鮮人の陶工によって優れた技術が伝えられ、有田焼や薩摩焼、萩焼など、各地で新しい陶磁器が作られて特産物になった」です。この歴史から、この戦いは別名「やきもの戦争」と呼ばれることもあるんですよ。</p>
+            
+            <hr class="item-border">
+            
+            <p>最後は、一番下のワークに書かれているメッセージです。「戦乱の世を終わらせたものは何だろう」。 もし学校の授業でここを話し合ったなら、ぜひ思い出してみてください。信長の「楽市・楽座」、秀吉の「太閤検地」や「刀狩」。これらはどれも、武士と百姓の身分をはっきり区別して、勝手な戦いをさせないようにするための仕組みでした。 秀吉は最後にそのエネルギーを海外に向けて失敗してしまいましたが、国内をまとめたこれらの仕組みが、次の江戸時代のベースになっていくのです。</p>
+        </section>
+
+        <div class="action-panel">
+            <div class="action-title">今日の歴史学習を記録しよう！</div>
+            <div class="judge-actions">
+                <button class="action-btn btn-read" onclick="submitLog('読んだ')">📖 読んだ！</button>
+                <button class="action-btn btn-listen" onclick="submitLog('聞いた')">🎧 聞いた！</button>
+            </div>
+            <span id="submit-status" class="status-badge">ボタンを押すとスプレッドシートに同期します</span>
+        </div>
+    </div>
+
+    <div class="speech-only">
+     <p>それでは、ここから新しいテスト範囲に入りましょう。百九ページ、タイトルは「戦乱の世を終わらせたものはなんだろう / 朝鮮侵略」です。 一度画面から目を離して、ゆっくりと目を閉じてみてください。耳の感覚だけに集中しましょう。豊臣秀吉の天下統一のその先、海外へと向かったストーリーが始まります。ここから教科書の本文を読み上げます。</p>
+        <p>秀吉は、キリスト教に対して警戒をしましたが、海外との貿易には強い関心を持ちました。商人が東南アジアへ渡航することをすすめ、わかん、などの海賊をとりしまる命令を出して貿易船の安全を図りました。また、秀吉は東アジアの支配を目指し、朝鮮、高山国、ルソンなどに服属を求めました。ここにも一癖ありますね、高山国とルソンは現在の何という国でしょうか？、覚えていますか？</p>
+        <p>そして、千五百九十二年には、みんの征服を目指し、諸大名に命じて、約十五万人の大軍を朝鮮に派遣しました。これが、文禄のえきです。 軍勢は、首都、かんじょう、現在のソウルを占領して朝鮮北部まで進みましたが、みんの援軍におしもどされました。また、各地で朝鮮の民衆による抵抗運動が起こり、海戦でも苦戦しました。</p>
+        <p>そこで、みんとの間で講和の交渉が始まり、みんの使節が来日しました。しかし、講和は成立せず、千五百九十七年に再び戦いが始まりました。これが、慶長の駅です。 日本は苦戦し、千五百九十八年に秀吉が病死したのをきっかけに、軍勢を引きあげました。</p>
+        <p>七年にわたる戦いで、戦場となった朝鮮は荒廃し、日本に連行される人もいました。日本の武士や農民も重い負担に苦しみ、豊臣氏が没落する原因となりました。</p>
+        <p>はい、ここまでが本文の朗読です。しっかり耳で追うことはできましたか？ 秀吉の野望は大失敗に終わり、これが豊臣家が衰退する大きな引き金となってしまいましたね。それでは、ここからが本番です。目を閉じたまま、テストに出やすい図や写真のポイントを頭の中に思い浮かべていきましょう。</p>
+        <p>まずは、絶対に間違えたくない最重要キーワードの三つです。頭の中で文字をイメージしてみてくださいね。 一つ目は、一回目に派遣した十五万人の大軍、千五百九十二年の出来事が文禄の駅です。 二つ目は、その一回目の時に一気に占領した朝鮮の首都、漢城です。漢字で「漢字の漢」に「お城の城」と書いて、かんじょう。現在のソウルにあたります。 三つ目は、交渉が決裂して二回目に仕掛けた千五百九十七年の戦い、慶長のえきです。 文禄が一回目、慶長が二回目です。この順番を頭の中で整理しておきましょう。</p>
+        <p>ここからは、先生が狙ってくる教科書の資料やイラストのポイントをチェックしていきましょう。頭の中に教科書の景色を思い浮かべながら、質問に答えてみてくださいね。</p>
+        <p>教科書のみぎ中央にある名護屋城図のイラストを思い出してみましょう。これ、名前は「なごやじょう」と読みますが、愛知県の名古屋城のことではありません。漢字は「名前の名」に「護衛のご」と書きます。 先生はここを狙ってきます。「秀吉が朝鮮出兵の拠点・指揮をとるために築いた城はどこですか？また何県にありますか？」 正解は、佐賀県にある名護屋城です。愛知県の名古屋城と引っかからないように気をつけましょう。</p>
+        <p>次は右下です。トゲトゲとした特徴的な船の写真が載っていますね。これが朝鮮水軍のきっこうせん、これを率いたのが英雄、りしゅんしんです。漢字で名前を書けますか？ テストではこう聞かれることがあります。「なぜ亀甲船はこのような形をしているのでしょうか？」 正解は、「甲板、上面が鉄板などの装甲でおおわれていて、日本軍が飛び移ったり攻撃したりするのを防ぐため」です。この船の活躍によって、日本の水軍はとても苦戦することになりました。</p>
+        <p>ページ右上の地図を思い出してみましょう。一回目の文禄の駅の矢印は、一気に漢城を抜けて、一番北の中国との国境近くまで長く伸びています。 それに対して、二回目の慶長のえきのマークは、朝鮮半島の南側に固まっていますね。つまり、二回目は北まで進めず、南側でずっと足止めを食らい、苦戦したことがわかります。「一回目は北まで進んだ、2回目は南側で足止めされた」という地図のイメージを、頭に焼き付けておきましょう。</p>
+        <p>ページ上部のコラムに、グレーっぽい白の茶碗の写真が載っていますね。薩摩焼、さつまやきの茶碗です。 先生はここを記述問題で狙ってくる可能性が高いです。「秀吉の朝鮮侵略は、その後の日本の伝統文化にどのような影響を与えましたか？陶工という言葉を使って説明しなさい」。 正解は、「連れて帰られた朝鮮人の陶工によって優れた技術が伝えられ、有田焼や薩摩焼、萩やきなど、各地で新しい陶磁器が作られて特産物になった」です。この歴史から、この戦いは別名「やきもの戦争」と呼ばれることもあるんですよ。</p>
+        <p>最後は、一番下のワークに書かれているメッセージです。「戦乱の世を終わらせたものはなんだろう」。 もし学校の授業でここを話し合ったなら、ぜひ思い出してみてください。信長の「楽市・楽座」、秀吉の「太閤検地」や「刀狩」。これらはどれも、武士と百姓の身分をはっきり区別して、勝手な戦いをさせないようにするための仕組みでした。 秀吉は最後にそのエネルギーを海外に向けて失敗してしまいましたが、国内をまとめたこれらの仕組みが、次の江戸時代のベースになっていくのです。</p>
+        <p>はい、それではゆっくりと目を開けてみてください。これを聞いているのは教科書を見ながらでしたか？テニスに向かっている車のなか？それとも寝る前のベットのなかでしょうか？ 百九ページ、ただの太字だけでなく、佐賀県の名護屋城、鉄板の亀甲船、薩摩焼のストーリーが、すべて頭の中でつながりましたか？とても素晴らしいです。それでは、次のページに進みましょう！</p>
+    </div>
+</article>
+
+<script>
+    // ==========================================
+    // 🛠️ 設定・データエリア
+    // ==========================================
+  　const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbydm7uz0pQxvGmzzVGogwewBb9E700HY8nxTKjks2naK58geXBD2SHj2CDn0mCdvenU/exec"; 
+    const SUBJECT_NAME = "歴史";
+    const PAGE_NAME = "119戦乱の世を終わらせたものは何だろう";
+    const QUIZ_ID = "main_text"; // 固定 of テキストID
+    const LAYOUT_NAME = "リーディング・リスニング";
+
+    let isSubmitting = false;
+
+    // 効果音生成システム (Web Audio API)
+    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    function playSound() {
+        if (audioCtx.state === 'suspended') audioCtx.resume();
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+
+        // ✨ 成功時のピンポン♪ サウンド
+        osc.frequency.setValueAtTime(523.25, audioCtx.currentTime); // ド
+        osc.frequency.setValueAtTime(659.25, audioCtx.currentTime + 0.15); // ミ
+        gain.gain.setValueAtTime(0.3, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.4);
+        osc.start(); osc.stop(audioCtx.currentTime + 0.4);
+    }
+
+    // ページ読み込み時に現在のカウントをGASから取得
+    window.addEventListener('DOMContentLoaded', () => {
+        fetchCounts();
+    });
+
+    // 【★追加】GASから返ってきたカウントデータを受け取る関数
+    window.handleCountResponse = function(data) {
+        if (data && data.status === "success") {
+            document.getElementById('count-read').innerText = data.readCount;
+            document.getElementById('count-listen').innerText = data.listenCount;
+        } else {
+            setCounterError();
+        }
+    };
+
+    // 【★書き換え】カウントの取得処理 (JSONP方式に変更)
+    function fetchCounts() {
+        const url = `${WEB_APP_URL}?page=${encodeURIComponent(PAGE_NAME)}&callback=handleCountResponse`;
+        
+        // scriptタグを動的に生成して通信を成立させる
+        const script = document.createElement('script');
+        script.src = url;
+        script.onerror = () => {
+            setCounterError();
+        };
+        
+        document.body.appendChild(script);
+        document.body.removeChild(script); // 実行後にタグを削除
+    }
+
+    function setCounterError() {
+        document.getElementById('count-read').innerText = "0";
+        document.getElementById('count-listen').innerText = "0";
+    }
+
+    // データの送信処理 (doPostへのアクセス)
+    function submitLog(statusType) {
+        if (isSubmitting) return;
+        isSubmitting = true;
+
+        const badge = document.getElementById('submit-status');
+        badge.innerText = `⏳ ${statusType}記録を送信中...`;
+        playSound();
+
+        const payload = {
+            subject: SUBJECT_NAME,
+            page: PAGE_NAME,
+            quizId: QUIZ_ID,
+            layout: LAYOUT_NAME,
+            status: statusType
+        };
+
+        fetch(WEB_APP_URL, {
+            method: "POST",
+            mode: "no-cors",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload)
+        })
+        .then(() => {
+            badge.innerText = `✨ ${statusType}をスプレッドシートに記録しました！`;
+            isSubmitting = false;
+            // 送信完了後、最新のカウントを再取得して画面を更新
+            setTimeout(fetchCounts, 1000);
+        })
+        .catch(err => {
+            console.error(err);
+            badge.innerText = "⚠️ 送信に失敗しました。再試行してください。";
+            isSubmitting = false;
+        });
+    }
+</script>
