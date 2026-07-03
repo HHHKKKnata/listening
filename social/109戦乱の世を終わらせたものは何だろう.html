@@ -298,17 +298,24 @@
 
     // 【★書き換え】カウントの取得処理 (JSONP方式に変更)
     function fetchCounts() {
-        const url = `${WEB_APP_URL}?page=${encodeURIComponent(PAGE_NAME)}&callback=handleCountResponse`;
-        
-        // scriptタグを動的に生成して通信を成立させる
+    // 💡 対策①：URLの末尾に毎回異なるタイムスタンプ（ミリ秒）を付与してキャッシュを強制回避
+        const cacheBuster = new Date().getTime();
+        const url = `${WEB_APP_URL}?page=${encodeURIComponent(PAGE_NAME)}&callback=handleCountResponse&_=${cacheBuster}`;
+    
         const script = document.createElement('script');
         script.src = url;
+    
+        // 💡 対策②：即座に削除せず、通信が「完了したあと」または「エラーになったあと」にタグを削除する
+        script.onload = () => {
+            document.body.removeChild(script);
+        };
         script.onerror = () => {
             setCounterError();
+            document.body.removeChild(script);
         };
-        
+    
         document.body.appendChild(script);
-        document.body.removeChild(script); // 実行後にタグを削除
+        // ❌ ここにあった直後の removeChild は完全に削除します
     }
 
     function setCounterError() {
