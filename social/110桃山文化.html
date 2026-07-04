@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>歴史学習：110ページ：桃山文化</title>
+    <style>
+        /* --- 北欧風ペールトーンスタイル（くすみカラー） --- */
+        :root {
+            --bg-color: #f4f6f5;
+            --container-bg: #ffffff;
+            --primary-color: #8fa89b; /* 優しいサージグリーン */
+            --accent-color: #d1a18c;  /* くすみテラコッタ */
+            --text-color: #4a5257;    /* 深みのあるチャコールグレー */
+            --text-muted: #737c82;
+            --border-color: #e2e9e6;
+        }
+
+        body {
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.8;
+            letter-spacing: 0.04em;
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* リーディングモード検知用コンテナ */
+        .container {
+            max-width: 720px;
+            width: 100%;
+            background-color: var(--container-bg);
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 4px 16px rgba(143, 168, 155, 0.05);
+            border: 1px solid var(--border-color);
+        }
+
+        header {
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 20px;
+            margin-bottom: 32px;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            color: var(--text-color);
+            margin: 0 0 8px 0;
+            font-weight: 600;
+        }
+
+        .subtitle {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin: 0 0 16px 0;
+        }
+
+        /* カウンター表示エリア */
+        .counter-panel {
+            background-color: #f0f4f2;
+            border-radius: 8px;
+            padding: 10px 16px;
+            font-size: 0.9rem;
+            color: #55605a;
+            display: inline-block;
+            font-weight: bold;
+            border: 1px solid #d6e2dc;
+        }
+        .counter-val {
+            color: #2f6146;
+            font-size: 1.1rem;
+            margin: 0 4px;
+        }
+
+        /* セクション見出し */
+        .section-title {
+            font-size: 1.25rem;
+            color: var(--text-color);
+            margin-top: 32px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            border-left: 4px solid var(--primary-color);
+            padding-left: 12px;
+        }
+
+        /* 視覚表示エリア */
+        .text-section p {
+            margin-bottom: 24px;
+            font-size: 1.05rem;
+            text-align: justify;
+        }
+
+        .text-section strong {
+            color: var(--text-color);
+            background: linear-gradient(transparent 65%, #f2dec9 65%);
+            padding: 0 2px;
+            font-weight: bold;
+        }
+
+        /* 区切り線（ボーダー） */
+        .section-border {
+            border: 0;
+            border-top: 2px solid var(--primary-color);
+            margin: 40px 0;
+            opacity: 0.3;
+        }
+        
+        .item-border {
+            border: 0;
+            border-top: 1px dashed var(--primary-color);
+            margin: 28px 0;
+            opacity: 0.4;
+        }
+
+        /* 学習記録アクションエリア */
+        .action-panel {
+            background: #fafafa;
+            border: 2px dashed var(--primary-color);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+            margin-top: 48px;
+        }
+        .action-title {
+            font-weight: bold;
+            margin-bottom: 16px;
+            font-size: 1.05rem;
+            color: var(--text-color);
+        }
+        .judge-actions {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+        }
+        .action-btn {
+            flex: 1; padding: 14px; border: none; border-radius: 12px;
+            font-family: inherit; font-weight: bold; cursor: pointer; color: white;
+            text-align: center; font-size: 1rem; transition: transform 0.1s, box-shadow 0.1s;
+        }
+        .btn-read { background: #8fa89b; box-shadow: 0 4px 0 #738a7e; }
+        .btn-listen { background: #d1a18c; box-shadow: 0 4px 0 #b58875; }
+        .action-btn:active { transform: translateY(3px); box-shadow: 0 1px 0 transparent; }
+        
+        .status-badge {
+            display: block; margin-top: 14px; font-size: 0.85rem; font-weight: bold; color: var(--text-muted);
+        }
+
+        /* 聴覚・読み上げ専用エリア（CSSにより画面から完全隠蔽、音声エンジンのみ100%検知） */
+        .speech-only {
+            position: absolute;
+            color: transparent;
+            font-size: 0px;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
+
+        /* レスポンシブ対応 */
+        @media (max-width: 480px) {
+            body {
+                padding: 16px 12px;
+            }
+            .container {
+                padding: 24px 16px;
+            }
+            h1 {
+                font-size: 1.25rem;
+            }
+            .judge-actions {
+                flex-direction: column;
+                gap: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<article class="container">
+    <!-- ヘッダー（タイトル・学習カウンター） -->
+    <header>
+        <h1>110ページ：桃山文化</h1>
+        <p class="subtitle">歴史学習：ヨーロッパ人との出会いと全国統一</p>
+        
+        <div class="counter-panel">
+            📊 これまでの学習記録：
+            読んだ <span id="count-read" class="counter-val">確認中...</span> 回 / 
+            聞いた <span id="count-listen" class="counter-val">確認中...</span> 回
+        </div>
+    </header>
+
+    <!-- 【視覚表示エリア】（デバイスの音声読み上げからは隠す） -->
+    <div class="text-section" aria-hidden="true">
+        <section>
+            <h2 class="section-title">教科書本文</h2>
+            <p>学習課題。安土桃山時代の文化は、どのような特徴を持っていたのでしょうか。</p>
+            <p>天下統一と豪壮な文化。織田信長や豊臣秀吉によって全国の統一が進められ、強力な中央政権が成立すると、社会は安定し活気がみなぎるようになりました。商業や南蛮貿易が盛んになり、金・銀の産出も増加しました。大名や豪商は、その権力や富を背景に、豪華な生活を送りました。そのころ栄えた文化を、<strong>桃山文化</strong>と呼びます。</p>
+            <p>桃山文化を代表するのは、<strong>安土城</strong>や<strong>大坂城</strong>などの壮大な城です。これらの城には、高くそびえる<strong>天守</strong>と巨大な石垣が築かれ、支配者の強大な権力と富が示されました。城の建物の内部を見ると、欄間には豪華な彫刻がほどこされ、ふすまや屏風、天井には、<strong>狩野永徳</strong>などの画家によって、金銀やあざやかな色を使ったきらびやかな絵がえがかれました。</p>
+            <p>この時期、大名や豪商の間で交際の手段として流行したのが、茶の湯でした。中国から渡来した茶道具で評価の高いものは、大名の領地と同じくらいの価値を持ちました。信長・秀吉に仕えた<strong>千利休</strong>は、質素な風情を工夫して楽しむ、<strong>わび茶</strong>と呼ばれるようになる芸能を完成させました。</p>
+            <p>芸能と生活文化の展開。戦乱が遠のいて社会が安定すると、人々の間に平和な世の中を積極的に楽しむ風潮が広まり、芸能や生活文化に新しい動きが見られるようになりました。恋愛を題材にした小歌や、三味線に合わせて語る<strong>浄瑠璃</strong>が、人々にもてはやされました。17世紀初め、出雲の阿国という女性が始めた<strong>かぶきおどり</strong>も、京都で人気を集めました。</p>
+            <p>衣服では、色あざやかな小袖が日常的に着られるようになり、麻にかわって木綿が庶民の衣料として広がり始めました。</p>
+            <p>ヨーロッパの影響。戦国時代から安土桃山時代にかけて、キリスト教の宣教師や商人など多くのヨーロッパ人が来航し、彼らによって、パン・カステラ・カルタ・時計などもたらされました。金のくさりやボタン、帽子、ヨーロッパ風の衣服を身に着けることが流行しました。</p>
+            <p>天文学・医学・航海術など、新しい学問や技術も伝えられ、ヨーロッパ風の絵画もえがかれました。活版印刷術も伝えられ、『平家物語』などの日本の書物が、ローマ字で印刷されました。こうしたヨーロッパの文化から影響を受けて成立した芸術や風俗などを、<strong>南蛮文化</strong>といいます。</p>
+        </section>
+
+        <hr class="section-border">
+
+        <section>
+            <h2 class="section-title">重要キーワード・資料解説</h2>
+            
+            <p>まずは、絶対に間違えたくない最重要キーワードの整理です。1つ目は、この時代の文化の名前である「桃山文化」です。信長や秀吉の時代を「安土桃山時代」と言いますから、文化の名前も「桃山文化」になります。漢字のミスに気をつけてくださいね。2つ目は、権力の象徴となった壮大な城の建築です。「安土城」や「大坂城」には、高くそびえる「天守」と巨大な石垣が築かれました。「天守閣」ではなく、教科書の太字の通り「天守」と正確に覚えるのがポイントです。3つ目は、この豪華な城の内部に、金銀をちりばめたきらびやかな絵を描いた画家、「狩野永徳」です。永い、徳、という漢字を書きます。4つ目は、きらびやかなお城の文化とは対照的に、質素な風情を大切にする「わび茶」を完成させた「千利休」です。信長や秀吉に仕えた堺の商人ですね。5つ目は、新しく展開した芸能です。三味線に合わせて語る「浄瑠璃」や、出雲の阿国という女性が京都で始めて人気を集めた「かぶきおどり」です。最後は、ヨーロッパの文化から影響を受けて成立した「南蛮文化」です。のちの時代に出てくる「元禄文化」や「化政文化」などと、ごちゃ混ぜにしないように頭の中でしっかり区別しておきましょう。</p>
+            
+            <hr class="item-border">
+            
+            <p>それでは最後に、先生が狙ってくる「写真の解説文」や「歴史の背景」を、クイズ形式で一気に攻略していきましょう。</p>
+            <p>【第1問】110ページの上の城の写真、美しい白壁から「白鷺城」とも呼ばれている城の名前は何でしょうか？正解は、「姫路城」です。兵庫県姫路市にあり、5層の大天守と三つの小天守が結ばれている、桃山文化を象徴するお城としてよく出題されます。</p>
+            
+            <hr class="item-border">
+            
+            <p>【第2問】110ページの右上にある、狩野永徳の代表作の屏風絵のタイトルは何でしょうか？正解は、「唐獅子図屏風」です。お薦め、つまりオス（雄）の唐獅子が力強く歩く姿が、金銀やあざやかな色を使って描かれています。</p>
+            
+            <hr class="item-border">
+            
+            <p>【第3問】110ページの中央にある、千利休の人物紹介からの出題です。千利休は秀吉に重く用いられましたが、最後はどうなりましたか？正解は、「秀吉の怒りを買って自害を命じられた」です。写真の解説文にある、この最期のストーリーは、文章記述問題や選択肢の罠として狙われやすいので覚えておきましょう。</p>
+            
+            <hr class="item-border">
+            
+            <p>【第4問】110ページの左下にある写真、千利休が造った、右手前に「にじり口」という小さな入り口がある現存する茶室の名前は何でしょうか？正解は、「妙喜庵待庵」です。漢字が少し難しいですが、千利休のわび茶の世界を象徴する資料として、名前を答えさせられることがあります。</p>
+            
+            <hr class="item-border">
+            
+            <p>【第5問】111ページの上部にある絵画の解説です。17世紀初めに流行した芸能で、異様な服装をしたり行動したりすることを、当時何と言いましたか？正解は、「かぶく」です。これが、出雲の阿国が始めた「かぶきおどり」の語源になっています。</p>
+            
+            <hr class="item-border">
+            
+            <p>【第6問】111ページの中央にある、楽器の比較の写真に注目してください。日本の「三味線」は、どこから、どのようなルートで伝わって変化したものでしょうか？正解は、「中国の三弦が琉球（沖縄）の三線となり、それが日本に伝わって三味線になった」です。この楽器の変化のつながりは、グローバルな文化の広がりを重視する先生が大好きなポイントです。</p>
+            
+            <hr class="item-border">
+            
+            <p>【第7問】111ページの右下にある写真、ローマ字で書かれた『平家物語』は、何のために、誰が持ち帰った機械で印刷されたものでしょうか？正解は、「外国人宣教師の日本語学習のために作られ、天正遣欧使節が持ち帰った金属活版印刷機で印刷された」です。「なぜローマ字なのか＝宣教師が日本語を勉強するため」、「どうやって印刷したのか＝天正遣欧使節が持ち帰った印刷機」、この2つの理由は記述問題の超頻出ポイントです。必ずセットで頭に叩き込んでおきましょう。これで、110ページから111ページの解説は終了です。国内をまとめたこれらの仕組みが、次の江戸時代のベースになっていくのです。</p>
+        </section>
+
+        <!-- アクションボタンエリア -->
+        <div class="action-panel">
+            <div class="action-title">今日の歴史学習を記録しよう！</div>
+            <div class="judge-actions">
+                <button class="action-btn btn-read" onclick="submitLog('読んだ')">📖 読んだ！</button>
+                <button class="action-btn btn-listen" onclick="submitLog('聞いた')">🎧 聞いた！</button>
+            </div>
+            <span id="submit-status" class="status-badge">ボタンを押すとスプレッドシートに同期します</span>
+        </div>
+    </div>
+
+    <!-- 【読み上げ専用エリア】（画面上からは完全隠蔽し、音声エンジンにだけ検知させる） -->
+    <div class="speech-only">
+        <p>これから「ヨーロッパ人との出会いと全国統一」のなかの、「桃山文化」について一緒に学んでいきましょう。さあ、一度スマートフォンや教科書から目を離して、ゆっくりと目を閉じてみてください。これからお話しする、きらびやかで活気に満ちた歴史のストーリーを、頭の中で自由に思い浮かべながら耳を傾けてみてくださいね。それでは、始めましょう。百十ページ。学習課題。安土桃山時代の文化は、どのような特徴を持っていたのでしょうか。天下統一と豪壮な文化。織田信長や豊臣秀吉によって全国の統一が進められ、強力な中央政権が成立すると、社会は安定し活気がみなぎるようになりました。商業や南蛮貿易が盛んになり、金・銀の産出も増加しました。大名や豪商は、その権力や富を背景に、豪華な生活を送りました。そのころ栄えた文化を、桃山文化と呼びます。桃山文化を代表するのは、安土城やおおさかじょうなどの壮大な城です。これらの城には、高くそびえる天守と巨大な石垣が築かれ、支配者の強大な権力と富が示されました。城の建物の内部を見ると、欄間には豪華な彫刻がほどこされ、ふすまや屏風、天井には、狩野永徳などの画家によって、金銀やあざやかな色を使ったきらびやかな絵がえがかれました。この時期、大名や豪商の間で交際の手段として流行したのが、茶の湯でした。中国から渡来した茶道具で評価の高いものは、大名の領地と同じくらいの価値を持ちました。信長・秀吉に仕えた千利休は、質素な風情を工夫して楽しむ、わび茶と呼ばれるようになる芸能を完成させました。百十一ページ。芸能と生活文化の展開。戦乱が遠のいて社会が安定すると、人々の間に平和な世の中を積極的に楽しむ風潮が広まり、芸能や生活文化に新しい動きが見られるようになりました。恋愛を題材にした小歌や、三味線に合わせて語る浄瑠璃が、人々にもてはやされました。十七世紀初め、出雲の阿国という女性が始めた、かぶきおどりも、京都で人気を集めました。衣服では、色あざやかな小袖が日常的に着られるようになり、麻にかわって木綿が庶民の衣料として広がり始めました。ヨーロッパの影響。戦国時代から安土桃山時代にかけて、キリスト教の宣教師や商人など多くのヨーロッパ人が来航し、彼らによって、パン、カステラ、カルタ、時計などもたらされました。金のくさりやボタン、帽子、ヨーロッパ風の衣服を身に着けることが流行しました。天文学・医学・航海術など、新しい学問や技術も伝えられ、ヨーロッパ風の絵画もえがかれました。活版印刷術も伝えられ、『平家物語』などの日本の書物が、ローマ字で印刷されました。こうしたヨーロッパの文化から影響を受けて成立した芸術や風俗などを、南蛮文化といいます。はい、教科書の本文の朗読はここまでです。しっかりとお話のイメージは湧きましたか？では、目はまだ閉じたままでいてくださいね。ここからは、定期テストで大きな差がつく「資料や図の罠」をあなたの脳内に召喚していきましょう。解説を聞いて、テストの得点源をがっちり掴みましょう。まずは、絶対に間違えたくない最重要キーワードの整理です。一つ目は、この時代の文化の名前である「桃山文化」です。信長や秀吉の時代を「安土桃山時代」と言いますから、文化の名前も「桃山文化」になります。漢字のミスに気をつけてくださいね。二つ目は、権力の象徴となった壮大な城の建築です。「安土城」や「おおさかじょう」には、高くそびえる「天守」と巨大な石垣が築かれました。「天守閣」ではなく、教科書の太字の通り「天守」と正確に覚えるのがポイントです。三つ目は、この豪華な城の内部に、金銀をちりばめたきらびやかな絵を描いた画家、「狩野永徳」です。永い、徳、という漢字を書きます。四つ目は、きらびやかなお城の文化とは対照的に、質素な風情を大切にする「わび茶」を完成させた「千利休」です。信長や秀吉に仕えた堺の商人ですね。五つ目は、新しく展開した芸能です。三味線に合わせて語る「浄瑠璃」や、出雲の阿国という女性が京都で始めて人気を集めた「かぶきおどり」です。最後は、ヨーロッパの文化から影響を受けて成立した「南蛮文化」です。のちの時代に出てくる「元禄文化」や「かせい文化」などと、ごちゃ混ぜにしないように頭の中でしっかり区別しておきましょう。それでは最後に、先生が狙ってくる「写真の解説文」や「歴史の背景」を、クイズ形式で一気に攻略していきましょう。第一問。百十ページの上の城の写真、美しい白壁から「白鷺城」とも呼ばれている城の名前は何でしょうか？正解は、「姫路城」です。兵庫県姫路市にあり、五層の大天守と三つの「しょうてんしゅ」が結ばれている、桃山文化を象徴するお城としてよく出題されます。第二問。百十ページの右上にある、狩野えいとくの代表作の屏風絵のタイトルは何でしょうか？正解は、「唐獅子図屏風」です。お薦め、つまりオス、雄の唐獅子が力強く歩く姿が、金銀やあざやかな色を使って描かれています。第三問。百十ページの中央にある、千利休の人物紹介からの出題です。千利休は秀吉に重く用いられましたが、最後はどうなりましたか？正解は、「秀吉の怒りを買って自害を命じられた」です。写真の解説文にある、この最期のストーリーは、文章記述問題や選択肢の罠として狙われやすいので覚えておきましょう。第四問。百十ページの左下にある写真、千利休が造った、右手前に「にじり口」という小さな入り口がある現存する茶室の名前は何でしょうか？正解は、「みょうきあんたいあん」です。漢字が少し難しいですが、千利休のわび茶の世界を象徴する資料として、名前を答えさせられることがあります。第五問。百十一ページの上部にある絵画の解説です。十七世紀初めに流行した芸能で、異様な服装をしたり行動したりすることを、当時何と言いましたか？正解は、「かぶく」です。これが、出雲の阿国が始めた「かぶきおどり」の語源になっています。第六問。百十一ページの中央にある、楽器の比較の写真に注目してください。日本の「三味線」は、どこから、どのようなルートで伝わって変化したものでしょうか？正解は、「中国の三弦が琉球、沖縄のさんしんとなり、それが日本に伝わってしゃみせんになった」です。この楽器の変化のつながりは、グローバルな文化の広がりを重視する先生が大好きなポイントです。第七問。百十一ページの右下にある写真、ローマ字で書かれた『平家物語』は、何のために、誰が持ち帰った機械で印刷されたものでしょうか？正解は、「外国人宣教師の日本語学習のために作られ、天正遣欧使節が持ち帰った金属活版印刷機で印刷された」です。「なぜローマ字なのか、イコール、宣教師が日本語を勉強するため」、「どうやって印刷したのか、イコール、天正遣欧使節が持ち帰った印刷機」、この二つの理由は記述問題の超頻出ポイントです。必ずセットで頭に叩き込んでおきましょう。これで、百十ページから百十一ページの「耳攻めスクリプト」は終了です。国内をまとめたこれらの仕組みが、次の江戸時代のベースになっていくのです。はい、それではゆっくりと目を開けてみてください。そして思い浮かべて見て下さい。戦国時代、そして豊臣秀吉の朝鮮侵略の間はいくさに参加しない人々であっても娯楽を楽しめる余裕もありませんでした。このような文化が広く広まった背景には平和がもたらされたと言う事、そして人々の生活が短期間で急速に豊かになった事が想像出来ますね！戦乱の終わり、文化の発展なんて聞くと「ザ勉強」って感じがしますが、私たちの使っているスマートフォンやSNS、ティックトックなんかも言ってしまえば文化なんです。100年後、200年後の人たちは私たちのティックトック文化を「ザ勉強」として今のあなたのようにテストに出るから必死で覚えようとしているかもしれませんね。そんな風に考えると過去の人たちがどんな事を考えながら生きていたのかを知る勉強も素敵に思えてきませんか？百十ページ、百十一ページのただの太字だけでなく、きらびやかなお城、千利休のわび茶、南蛮文化のストーリーが、すべて頭の中でつながりましたか？それでは、次のページに進みましょう！</p>
+    </div>
+</article>
+
+<script>
+    // ==========================================
+    // 🛠️ 設定・データエリア
+    // ==========================================
+    const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbydm7uz0pQxvGmzzVGogwewBb9E700HY8nxTKjks2naK58geXBD2SHj2CDn0mCdvenU/exec"; // 💡 お使いのGASのWebアプリURLを入力してください
+    const SUBJECT_NAME = "歴史";
+    const PAGE_NAME = "110桃山文化"; // 💡 ルールに基づき一意のデータ名を設定
+    const QUIZ_ID = "main_text";     // 固定 of テキストID
+    const LAYOUT_NAME = "リーディング・リスニング";
+
+    let isSubmitting = false;
+
+    // 効果音生成システム (Web Audio API)
+    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    function playSound() {
+        if (audioCtx.state === 'suspended') audioCtx.resume();
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+
+        // ✨ 成功時のピンポン♪ サウンド
+        osc.frequency.setValueAtTime(523.25, audioCtx.currentTime); // ド
+        osc.frequency.setValueAtTime(659.25, audioCtx.currentTime + 0.15); // ミ
+        gain.gain.setValueAtTime(0.3, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.4);
+        osc.start(); osc.stop(audioCtx.currentTime + 0.4);
+    }
+
+    // ページ読み込み時に現在のカウントをGASから取得
+    window.addEventListener('DOMContentLoaded', () => {
+        fetchCounts();
+    });
+
+    // GASから返ってきたカウントデータを受け取る関数
+    window.handleCountResponse = function(data) {
+        if (data && data.status === "success") {
+            document.getElementById('count-read').innerText = data.readCount;
+            document.getElementById('count-listen').innerText = data.listenCount;
+        } else {
+            setCounterError();
+        }
+    };
+
+    // カウントの取得処理 (JSONP方式)
+    function fetchCounts() {
+        if (!WEB_APP_URL) { setCounterError(); return; }
+        const url = `${WEB_APP_URL}?page=${encodeURIComponent(PAGE_NAME)}&callback=handleCountResponse`;
+        
+        // scriptタグを動的に生成して通信を成立させる
+        const script = document.createElement('script');
+        script.src = url;
+        script.onerror = () => {
+            setCounterError();
+        };
+        
+        document.body.appendChild(script);
+        document.body.removeChild(script); // 実行後にタグを削除
+    }
+
+    function setCounterError() {
+        document.getElementById('count-read').innerText = "0";
+        document.getElementById('count-listen').innerText = "0";
+    }
+
+    // データの送信処理 (doPostへのアクセス)
+    function submitLog(statusType) {
+        if (!WEB_APP_URL) {
+            alert("GASのWEB_APP_URLが未設定です。コード内のURLを設定してください。");
+            return;
+        }
+        if (isSubmitting) return;
+        isSubmitting = true;
+
+        const badge = document.getElementById('submit-status');
+        badge.innerText = `⏳ ${statusType}記録を送信中...`;
+        playSound();
+
+        const payload = {
+            subject: SUBJECT_NAME,
+            page: PAGE_NAME,
+            quizId: QUIZ_ID,
+            layout: LAYOUT_NAME,
+            status: statusType
+        };
+
+        fetch(WEB_APP_URL, {
+            method: "POST",
+            mode: "no-cors",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload)
+        })
+        .then(() => {
+            badge.innerText = `✨ ${statusType}をスプレッドシートに記録しました！`;
+            isSubmitting = false;
+            // 送信完了後、最新のカウントを再取得して画面を更新
+            setTimeout(fetchCounts, 1000);
+        })
+        .catch(err => {
+            console.error(err);
+            badge.innerText = "⚠️ 送信に失敗しました。再試行してください。";
+            isSubmitting = false;
+        });
+    }
+</script>
+</body>
+</html>
