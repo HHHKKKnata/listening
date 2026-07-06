@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>歴史学習：114-115ページ：鎖国とキリスト教</title>
+    <style>
+        /* --- 北欧風ペールトーンスタイル --- */
+        :root {
+            --bg-color: #f7f9fa;
+            --container-bg: #ffffff;
+            --primary-color: #8fa89b; /* 優しいサージグリーン */
+            --accent-color: #d1a18c;  /* くすみテラコッタ */
+            --text-color: #4a5257;    /* 深みのあるチャコールグレー */
+            --text-muted: #70797e;
+            --border-color: #e4ebed;
+        }
+
+        body {
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.8;
+            letter-spacing: 0.03em;
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* リーディングモード検知用コンテナ */
+        .container {
+            max-width: 720px;
+            width: 100%;
+            background-color: var(--container-bg);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+            border: 1px solid var(--border-color);
+        }
+
+        header {
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 20px;
+            margin-bottom: 32px;
+        }
+
+        h1 {
+            font-size: 1.6rem;
+            color: var(--text-color);
+            margin: 0 0 8px 0;
+            font-weight: 600;
+        }
+
+        .subtitle {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin: 0 0 12px 0;
+        }
+
+        /* 💡 ページ上部：カウンター表示エリア */
+        .counter-panel {
+            background-color: #f0f4f2;
+            border-radius: 8px;
+            padding: 10px 15px;
+            font-size: 0.9rem;
+            color: #55605a;
+            display: inline-block;
+            font-weight: bold;
+            border: 1px solid #d2ded7;
+        }
+        .counter-val {
+            color: #047857;
+            font-size: 1.1rem;
+            margin: 0 4px;
+        }
+
+        /* セクションヘッダー */
+        .section-title {
+            font-size: 1.25rem;
+            color: var(--primary-color);
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            border-left: 4px solid var(--primary-color);
+            padding-left: 10px;
+        }
+
+        /* 視覚表示エリア */
+        .text-section p {
+            margin-bottom: 24px;
+            font-size: 1.05rem;
+            text-align: justify;
+        }
+
+        .text-section strong {
+            color: var(--accent-color);
+            background: linear-gradient(transparent 70%, #f3e5e0 70%);
+            padding: 0 2px;
+            font-weight: bold;
+        }
+
+        /* 区切り線（ボーダー） */
+        .section-border {
+            border: 0;
+            border-top: 1px solid var(--border-color);
+            margin: 32px 0;
+        }
+        
+        .item-border {
+            border: 0;
+            border-top: 1px dashed var(--border-color);
+            margin: 24px 0;
+        }
+
+        /* 💡 ページ下部：学習記録アクションエリア */
+        .action-panel {
+            background: #fafafa;
+            border: 2px solid var(--border-color);
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+            margin-top: 40px;
+        }
+        .action-title {
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+        .judge-actions {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+        }
+        .action-btn {
+            flex: 1; padding: 14px; border: none; border-radius: 10px;
+            font-family: inherit; font-weight: bold; cursor: pointer; color: white;
+            text-align: center; font-size: 0.95rem; transition: transform 0.1s;
+        }
+        .btn-read { background: #8fa89b; box-shadow: 0 4px 0 #6e8579; }
+        .btn-listen { background: #d1a18c; box-shadow: 0 4px 0 #b38470; }
+        .action-btn:active { transform: translateY(3px); box-shadow: 0 1px 0 transparent; }
+        
+        .status-badge {
+            display: block; margin-top: 12px; font-size: 0.8rem; font-weight: bold; color: var(--text-muted);
+        }
+
+        /* 聴覚・読み上げ専用エリア（CSSハックにより完全隠蔽、アクセシビリティのみ100%検知） */
+        .speech-only {
+            position: absolute;
+            color: transparent;
+            font-size: 0px;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
+
+        /* レスポンシブ */
+        @media (max-width: 480px) {
+            body {
+                padding: 20px 12px;
+            }
+            .container {
+                padding: 24px 20px;
+            }
+            h1 {
+                font-size: 1.3rem;
+            }
+            .judge-actions {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<article class="container">
+    <header>
+        <h1>114-115ページ：鎖国とキリスト教</h1>
+        <p class="subtitle">歴史学習：貿易の振興から「鎖国」へ</p>
+        
+        <div class="counter-panel">
+            📊 これまでの学習記録：
+            読んだ <span id="count-read" class="counter-val">確認中...</span> 回 / 
+            聞いた <span id="count-listen" class="counter-val">確認中...</span> 回
+        </div>
+    </header>
+
+    <!-- 視覚表示エリア（画面に見える文字、音声エンジンからは隠蔽） -->
+    <div class="text-section" aria-hidden="true">
+        <section>
+            <h2 class="section-title">教科書本文</h2>
+            <p>徳川家康も豊臣秀吉と同様、貿易に積極的でした。家康は、貿易を望む大名や豪商に、東南アジアへの渡航を許可する<strong>朱印状</strong>を発行しました。そして、ルソン（フィリピン）・安南（ベトナム）・カンボジア・シャム（タイ）などには、朱印状を持った船（<strong>朱印船</strong>）の保護を依頼しました。これを<strong>朱印船貿易</strong>といいます。輸入品の中心は、中国産の生糸や絹織物で、日本からは主に銀を輸出しました。多くの日本人が、東南アジアへ移住して生活するようになり、各地に<strong>日本町</strong>ができました。</p>
+            <p>また家康は、新しく来航したオランダとイギリスにも貿易を許可し、両国の商館が<strong>平戸</strong>（長崎県）に置かれました。</p>
+            <p>家康は初め、貿易の利益を重視してキリスト教の布教を黙認したため、キリスト教徒が増加しました。しかし家康は、領主への忠義よりも神への信仰を重んじるキリスト教の教えを危険視するようになりました。そのため、1612年、幕府でキリスト教が禁止され（<strong>禁教令</strong>）、翌年には全国へと拡大されました。第2代将軍徳川秀忠は、禁教を強化し、多くの宣教師や信者を処刑しました。</p>
+            <p>第3代将軍徳川家光は、1624年にスペインの来航を禁止しました。1635年には、日本人の海外渡航と帰国を禁止したため、朱印船貿易は終わりをむかえました。また、長崎に<strong>出島</strong>を築き、ポルトガル人を集めて住まわせ、日本人と自由に交流ができないようにし、中国船が長崎以外の港に来ることも禁じました。</p>
+            <p>1637年、領主によるキリスト教者への迫害や厳しい年貢の取り立てに苦しんだ、島原（長崎県）や天草（熊本県）の人々は、<strong>天草四郎</strong>（益田時貞）を大将にして一揆を起こしました（<strong>島原・天草一揆</strong>）。これを鎮圧した幕府は、1639年にポルトガル船の来航を禁止し、1641年にはオランダ商館を出島に移しました。こうして、キリスト教の布教を行わない中国とオランダだけが、長崎で貿易を許されることになりました。この幕府による禁教・貿易統制・海外往来の禁止・外交独占を政策とする体制を、「<strong>鎖国</strong>」と呼びます。</p>
+            <p>幕府は、かくれたキリスト教者を発見するために<strong>絵踏</strong>を行いました。また、<strong>宗門改</strong>を行い、人々が仏教徒であることを寺に証明させ、葬式も寺で行われるようになりました。</p>
+        </section>
+
+        <hr class="section-border">
+
+        <section>
+            <h2 class="section-title">重要キーワード・資料解説</h2>
+            <p>まずは、言葉のイメージと、テストでごちゃ混ぜにしやすいポイントを整理します。</p>
+            <p>1つ目は、家康の貿易に関する言葉です。海外へ行くことを許可する証明書が「朱印状」、その証明書を持った船が「朱印船」、それを使った貿易が「朱印船貿易」です。漢字の「朱色」のスタンプが押された書類をイメージしてください。また、東南アジアに移住した日本人が作った街を「日本町」と言います。</p>
+            
+            <hr class="item-border">
+            
+            <p>2つ目は、キリスト教の禁止と人々の管理に関する言葉です。キリスト教を禁止する命令が「禁教令」です。そして、かくれた信者を見つけるために、キリストやマリアの像を足で「ふむ行為」そのものを「絵踏」、そのために用意された「道具の板」のことを「踏絵」と言います。テストで書くときに、行為なのか道具なのかをしっかり区別しましょう。さらに、人々がキリスト教徒ではなく仏教徒であることをお寺に証明させる仕組みを「宗門改」と言います。</p>
+            
+            <hr class="item-border">
+            
+            <p>3つ目は、キリスト教の弾圧に抵抗した大きな事件です。長崎県の島原と、熊本県の天草の人々が起こした一揆を「島原・天草一揆」と言います。この一揆の大将となったのが、まだ少年だった「天草四郎」、別名を「益田時貞」です。最後に、これらの一連の政策によって完成した、江戸幕府による貿易統制や外交独占の体制を「鎖国」と言います。鎖国の「鎖」という漢字は「くさり」という意味ですので、間違えないように注意しましょう。</p>
+            
+            <hr class="item-border">
+            
+            <p>それでは最後に、先生が一番出題したい「資料の周辺知識」と「歴史の流れ」について、テスト形式で確認していきましょう。</p>
+            <p>第1問です。徳川家康が、初めは黙認していたキリスト教を、のちに「禁教令」を出して禁止した「理由」は何ですか？ 正解は、「キリスト教の教えが、領主への忠義よりも神への信仰を重んじたため、幕府がそれを危険視したから」です。「神への信仰を重んじる」というキーワードを記述のなかに必ず入れましょう。</p>
+            
+            <hr class="item-border">
+            
+            <p>第2問です。朱印船貿易の相手国となった、東南アジアの当時の地名についてです。現在の国名で「フィリピン」にあたる場所を当時何と呼びましたか？また、「ベトナム」「タイ」は当時何と呼ばれていましたか？ 正解は、フィリピンが「ルソン」、ベトナムが「安南」、タイが「シャム」です。地図の問題で場所と名前が結びつけられるように、耳で覚えておきましょう。</p>
+            
+            <hr class="item-border">
+            
+            <p>第3問です。教科書にある「朱印船」のイラストの解説文からの出題です。「鎖国」が完成したあとの日本の和船は帆柱が1本ですが、朱印船には何本の帆柱がありましたか？また、それはなぜですか？ 正解は、「3本の帆柱」があり、理由は「大洋（外洋）を航行するため」です。こうした小さな解説文の数字や理由は、先生が大好きなポイントです。</p>
+            
+            <hr class="item-border">
+            
+            <p>第4問です。1637年に起こった「島原・天草一揆」の、教科書の写真解説文からの出題です。一揆軍が立てこもったお城の名前は何ですか？また、幕府が送り込んだ軍勢の人数と、一揆軍の人数はそれぞれおよそ何人ですか？ 正解は、お城の名前は「原城」、幕府の軍勢は「12万人余」、一揆軍は「約3万7000人」です。幕府はこの一揆を鎮めるのに4か月もかかり、大変苦しみました。</p>
+            
+            <hr class="item-border">
+            
+            <p>第5問です。「島原・天草一揆」を鎮圧したあと、幕府は貿易とキリスト教の統制を一気に強めて「鎖国」へと向かいます。この「鎖国が完成するまでの流れ」を順番に言葉で整理しましょう。 まず、一揆の2年後である1639年に、キリスト教を広めていた「ポルトガル船の来航」を禁止します。そしてその2年後の1641年に、長崎の「平戸」にあった「オランダ商館」を、長崎の港に作られた人工の島である「出島」に移しました。ここが一番の狙われどころです。ヨーロッパの国の中で、最終的に長崎での貿易を許されたのは、キリスト教の布教を行わない「オランダ」だけです。来航を禁止されたのは「ポルトガル」、出島に移されたのは「オランダ」というこの2つの国の違いを、流れと一緒に絶対にゴチャ混ぜにしないでくださいね。</p>
+            
+            <hr class="item-border">
+            
+            <p>第6問です。「鎖国」の体制が完成したあと、長崎で貿易を許されたのは、ヨーロッパの国では「オランダ」ですが、アジアの国ではどこですか？ 正解は「中国（清）」です。鎖国とは国を完全に閉ざしたわけではなく、長崎という窓口を通して、キリスト教を広めない「オランダ」と「中国」の2つの国とは貿易を続けていた、という「中身の定義」をしっかりと頭に入れておきましょう。</p>
+        </section>
+
+        <div class="action-panel">
+            <div class="action-title">今日の歴史学習を記録しよう！</div>
+            <div class="judge-actions">
+                <button class="action-btn btn-read" onclick="submitLog('読んだ')">📖 読んだ！</button>
+                <button class="action-btn btn-listen" onclick="submitLog('聞いた')">🎧 聞いた！</button>
+            </div>
+            <span id="submit-status" class="status-badge">ボタンを押すとスプレッドシートに同期します</span>
+        </div>
+    </div>
+
+    <!-- 聴覚専用エリア（画面から完全隠蔽、音声エンジンにだけ100%検知させる、西暦・数値の誤読防止対策済み） -->
+    <div class="speech-only">
+        <p>みなさん、こんにちは。これから教科書の百十四ページと百十五ページ、「貿易の振興から、さこくへ」のストーリーを一緒に学んでいきましょう。まずはリラックスして、画面から一度目を離してみてください。ゆっくりと目を閉じて、これから流れる言葉を耳だけで追いかけながら、当時の日本の様子を頭の中に描いてみましょう。それでは、始めます。</p>
+        <p>徳川家康も豊臣秀吉と同様、貿易に積極的でした。家康は、貿易を望む大名や豪商に、東南アジアへの渡航を許可する朱印状を発行しました。そして、ルソン・フィリピン、あんなん・ベトナム、カンボジア、シャム「現在のタイ」などには、朱印状を持った船、朱印船の保護を依頼しました。これを朱印船貿易といいます。輸入品の中心は、中国産の生糸や絹織物で、日本からは主に銀を輸出しました。多くの日本人が、東南アジアへ移住して生活するようになり、各地に、にほんまち、ができました。</p>
+        <p>また家康は、新しく来航したオランダとイギリスにも貿易を許可し、両国の商館が平戸、長崎県に置かれました。</p>
+        <p>家康は初め、貿易の利益を重視してキリスト教の布教を黙認したため、キリスト教徒が増加しました。しかし家康は、領主への忠義よりも神への信仰を重んじるキリスト教の教えを危険視するようになりました。そのため、千六百十二年、幕府でキリスト教が禁止され、禁教令、翌年には全国へと拡大されました。第二代将軍徳川秀忠は、禁教を強化し、多くの宣教師や信者を処刑しました。</p>
+        <p>第三代将軍徳川家光は、千六百二十四年にスペインの来航を禁止しました。千六百三十五年には、日本人の海外渡航と帰国を禁止したため、しゅいんせん貿易は終わりをむかえました。また、長崎に出島を築き、ポルトガル人を集めて住まわせ、日本人と自由に交流ができないようにし、ちゅうごくせんが長崎以外の港に来ることも禁じました。</p>
+        <p>千六百三十七年、領主によるキリスト教者への迫害や厳しい年貢の取り立てに苦しんだ、島原、長崎県や、あまくさ、熊本県の人々は、あまくさしろう、本名、ますだときさだ、を大将にして一揆を起こしました、島原・あまくさ一揆。これを鎮圧した幕府は、千六百三十九年にポルトガル船の来航を禁止し、千六百四十一年にはオランダ商館を出島に移しました。こうして、キリスト教の布教を行わない中国とオランダだけが、長崎で貿易を許されることになりました。この幕府による禁教・貿易統制・海外往来の禁止・外交独占を政策とする体制を、「さこく」と呼びます。</p>
+        <p>幕府は、かくれたキリスト教者を発見するために絵踏を行いました。また、しゅうもんあらため、を行い、人々が仏教徒であることを寺に証明させ、葬式も寺で行われるようになりました。</p>
+        <p>はい、本文の朗読はここまでです。よく集中して聴けましたね。それでは、目はまだ閉じたままでいてください。ここからは、テストで大きな差がつく「資料や図の罠」をあなたの脳内に召喚していきます。先生が狙ってくるポイントを、耳からすっきりと整理していきましょう。</p>
+        <p>まずは、言葉のイメージと、テストでごちゃ混ぜにしやすいポイントを整理します。ひとつ目は、家康の貿易に関する言葉です。海外へ行くことを許可する証明書が「朱印状」、その証明書を持った船が「しゅいんせん」、それを使った貿易が「しゅいんせんぼうえき」です。漢字の「朱色」のスタンプが押された書類をイメージしてください。また、東南アジアに移住した日本人が作った街を「日本町」と言います。</p>
+        <p>ふたつ目は、キリスト教の禁止と人々の管理に関する言葉です。キリスト教を禁止する命令が「禁教令」です。そして、かくれた信者を見つけるために、キリストやマリアの像を足で「ふむ行為」そのものを「えふみ」、そのために用意された「道具の板」のことを「ふみえ」と言います。テストで書くときに、行為なのか道具なのかをしっかり区別しましょう。さらに、人々がキリスト教徒ではなく仏教徒であることをお寺に証明させる仕組みを「しゅうもんあらため」と言います。</p>
+        <p>みっつ目は、キリスト教の弾圧に抵抗した大きな事件です。長崎県の島原と、熊本県の、あまくさ、の人々が起こした一揆を「島原・あまくさ一揆」と言います。この一揆の大将となったのが、まだ少年だった「あまくさしろう」、別名を「ますだときさだ」です。最後に、これらの一連の政策によって完成した、江戸幕府による貿易統制や外交独占の体制を「さこく」と言います。さこくの「鎖」という漢字は「くさり」という意味ですので、間違えないように注意しましょう。</p>
+        <p>それでは最後に、先生が一番出題したい「資料の周辺知識」と「歴史の流れ」について、テスト形式で確認していきましょう。</p>
+        <p>第一問です。徳川家康が、初めは黙認していたキリスト教を、のちに「禁教令」を出して禁止した「理由」は何ですか？正解は、「キリスト教の教えが、領主への忠義よりも神への信仰を重んじたため、幕府がそれを危険視したから」です。「神への信仰を重んじる」というキーワードを記述のなかに必ず入れましょう。</p>
+        <p>第二問です。朱印船貿易の相手国となった、東南アジアの当時の地名についてです。現在の国名で「フィリピン」にあたる場所を当時何と呼びましたか？また、「ベトナム」「タイ」は当時何と呼ばれていましたか？正解は、フィリピンが「ルソン」、ベトナムが「あんなん」、タイが「シャム」です。地図の問題で場所と名前が結びつけられるように、耳で覚えておきましょう。</p>
+        <p>第三問です。教科書にある「しゅいんせん」のイラストの解説文からの出題です。「さこく」が完成したあとの日本の和船は帆柱が一本ですが、しゅいんせんには何本の帆柱がありましたか？また、それはなぜですか？正解は、「三本の帆柱」があり、理由は「大洋を航行するため」です。こうした小さな解説文の数字や理由は、先生が大好きなポイントです。</p>
+        <p>第四問です。千六百三十七年に起こった「島原・あまくさ一揆」の、教科書の写真解説文からの出題です。一揆軍が立てこもったお城の名前は何ですか？また、幕府が送り込んだ軍勢の人数と、一揆軍の人数はそれぞれおよそ何人ですか？正解は、お城の名前は「原城」、幕府の軍勢は「十二万人あまり」、一揆軍は「約三万七千人」です。幕府はこの一揆を鎮めるのに四か月もかかり、大変苦しみました。</p>
+        <p>第五問です。「島原・あまくさ一揆」を鎮圧したあと、幕府は貿易とキリスト教の統制を一気に強めて「さこく」へと向かいます。この「さこくが完成するまでの流れ」を順番に言葉で整理しましょう。まず、一揆の二年後である千六百三十九年に、キリスト教を広めていた「ポルトガルせんの来航」を禁止します。そしてその二年後の千六百四十一年に、長崎の「平戸」にあった「オランダ商館」を、長崎の港に作られた人工の島である「出島」に移しました。ここが一番の狙われどころです。ヨーロッパの国の中で、最終的に長崎での貿易を許されたのは、キリスト教の布教を行わない「オランダ」だけです。来航を禁止されたのは「ポルトガル」、出島に移されたのは「オランダ」というこの二つの国の違いを、流れと一緒に絶対にゴチャ混ぜにしないでくださいね。</p>
+        <p>第ろくもんです。「さこく」の体制が完成したあと、長崎で貿易を許されたのは、ヨーロッパの国では「オランダ」ですが、アジアの国ではどこですか？正解は「中国」、当時の名称は、しん、です。鎖国とは国を完全に閉ざしたわけではなく、長崎という窓口を通して、キリスト教を広めない「オランダ」と「中国」の二つの国とは貿易を続けていた、という「中身の定義」をしっかりと頭に入れておきましょう。</p>
+        <p>はい、今回の耳攻めはここまでです。頭の中に、当時の航路の地図や、出島の形、そして年表の流れが浮かんできましたか？この調子で、先生の裏をかいて、次回のテストで高得点を目指しましょう。お疲れ様でした。</p>
+    </div>
+</article>
+
+<script>
+    // ==========================================
+    // 🛠️ 設定・データエリア
+    // ==========================================
+   const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbydm7uz0pQxvGmzzVGogwewBb9E700HY8nxTKjks2naK58geXBD2SHj2CDn0mCdvenU/exec"; 
+    const SUBJECT_NAME = "歴史";
+    const PAGE_NAME = "114鎖国とキリスト教";
+    const QUIZ_ID = "main_text"; // 固定 of テキストID
+    const LAYOUT_NAME = "リーディング・リスニング";
+
+    let isSubmitting = false;
+
+    // 効果音生成システム (Web Audio API)
+    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    function playSound() {
+        if (audioCtx.state === 'suspended') audioCtx.resume();
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+
+        // ✨ 成功時のピンポン♪ サウンド
+        osc.frequency.setValueAtTime(523.25, audioCtx.currentTime); // ド
+        osc.frequency.setValueAtTime(659.25, audioCtx.currentTime + 0.15); // ミ
+        gain.gain.setValueAtTime(0.3, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.4);
+        osc.start(); osc.stop(audioCtx.currentTime + 0.4);
+    }
+
+    // ページ読み込み時に現在のカウントをGASから取得
+    window.addEventListener('DOMContentLoaded', () => {
+        fetchCounts();
+    });
+
+    // GASから返ってきたカウントデータを受け取る関数
+    window.handleCountResponse = function(data) {
+        if (data && data.status === "success") {
+            document.getElementById('count-read').innerText = data.readCount;
+            document.getElementById('count-listen').innerText = data.listenCount;
+        } else {
+            setCounterError();
+        }
+    };
+
+    // カウントの取得処理 (JSONP方式に変更)
+    function fetchCounts() {
+        if (!WEB_APP_URL) {
+            setCounterError();
+            return;
+        }
+        const url = `${WEB_APP_URL}?page=${encodeURIComponent(PAGE_NAME)}&callback=handleCountResponse`;
+        
+        // scriptタグを動的に生成して通信を成立させる
+        const script = document.createElement('script');
+        script.src = url;
+        script.onerror = () => {
+            setCounterError();
+        };
+        
+        document.body.appendChild(script);
+        document.body.removeChild(script); // 実行後にタグを削除
+    }
+
+    function setCounterError() {
+        document.getElementById('count-read').innerText = "0";
+        document.getElementById('count-listen').innerText = "0";
+    }
+
+    // データの送信処理 (doPostへのアクセス)
+    function submitLog(statusType) {
+        if (isSubmitting) return;
+        if (!WEB_APP_URL) {
+            alert("WEB_APP_URLが未設定です。コード内のURLを設定してください。");
+            return;
+        }
+        isSubmitting = true;
+
+        const badge = document.getElementById('submit-status');
+        badge.innerText = `⏳ ${statusType}記録を送信中...`;
+        playSound();
+
+        const payload = {
+            subject: SUBJECT_NAME,
+            page: PAGE_NAME,
+            quizId: QUIZ_ID,
+            layout: LAYOUT_NAME,
+            status: statusType
+        };
+
+        fetch(WEB_APP_URL, {
+            method: "POST",
+            mode: "no-cors",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload)
+        })
+        .then(() => {
+            badge.innerText = `✨ ${statusType}をスプレッドシートに記録しました！`;
+            isSubmitting = false;
+            // 送信完了後、最新のカウントを再取得して画面を更新
+            setTimeout(fetchCounts, 1000);
+        })
+        .catch(err => {
+            console.error(err);
+            badge.innerText = "⚠️ 送信に失敗しました。再試行してください。";
+            isSubmitting = false;
+        });
+    }
+</script>
+
+</body>
+</html>
