@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>歴史学習：116-117ページ 鎖国とはいうけれど 江戸時代の対外関係</title>
+    <style>
+        /* --- 北欧風ペールトーンスタイル --- */
+        :root {
+            --bg-color: #f7f9fa;
+            --container-bg: #ffffff;
+            --primary-color: #8fa89b; /* 優しいサージグリーン */
+            --accent-color: #d1a18c;  /* くすみテラコッタ */
+            --text-color: #4a5257;    /* 深みのあるチャコールグレー */
+            --text-muted: #70797e;
+            --border-color: #e4ebed;
+        }
+
+        body {
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.8;
+            letter-spacing: 0.03em;
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* リーディングモード検知用コンテナ */
+        .container {
+            max-width: 720px;
+            width: 100%;
+            background-color: var(--container-bg);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+            border: 1px solid var(--border-color);
+        }
+
+        header {
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 20px;
+            margin-bottom: 32px;
+        }
+
+        h1 {
+            font-size: 1.6rem;
+            color: var(--text-color);
+            margin: 0 0 8px 0;
+            font-weight: 600;
+        }
+
+        .subtitle {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin: 0 0 12px 0;
+        }
+
+        /* 💡 ページ上部：カウンター表示エリア */
+        .counter-panel {
+            background-color: #f0f4f2;
+            border-radius: 8px;
+            padding: 10px 15px;
+            font-size: 0.9rem;
+            color: #55605a;
+            display: inline-block;
+            font-weight: bold;
+            border: 1px solid #d2ded7;
+        }
+        .counter-val {
+            color: #047857;
+            font-size: 1.1rem;
+            margin: 0 4px;
+        }
+
+        /* セクションヘッダー */
+        .section-title {
+            font-size: 1.25rem;
+            color: var(--primary-color);
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            border-left: 4px solid var(--primary-color);
+            padding-left: 10px;
+        }
+
+        /* 視覚表示エリア */
+        .text-section p {
+            margin-bottom: 24px;
+            font-size: 1.05rem;
+            text-align: justify;
+        }
+
+        .text-section strong {
+            color: var(--accent-color);
+            background: linear-gradient(transparent 70%, #f3e5e0 70%);
+            padding: 0 2px;
+            font-weight: bold;
+        }
+
+        /* 区切り線（ボーダー） */
+        .section-border {
+            border: 0;
+            border-top: 2px solid var(--primary-color);
+            margin: 32px 0;
+        }
+        
+        .item-border {
+            border: 0;
+            border-top: 1px dashed var(--border-color);
+            margin: 24px 0;
+        }
+
+        /* 💡 ページ下部：学習記録アクションエリア */
+        .action-panel {
+            background: #fafafa;
+            border: 2px solid var(--border-color);
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+            margin-top: 40px;
+        }
+        .action-title {
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+        .judge-actions {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+        }
+        .action-btn {
+            flex: 1; padding: 14px; border: none; border-radius: 10px;
+            font-family: inherit; font-weight: bold; cursor: pointer; color: white;
+            text-align: center; font-size: 0.95rem; transition: transform 0.1s;
+        }
+        .btn-read { background: #8fa89b; box-shadow: 0 4px 0 #6e8579; }
+        .btn-listen { background: #d1a18c; box-shadow: 0 4px 0 #b38470; }
+        .action-btn:active { transform: translateY(3px); box-shadow: 0 1px 0 transparent; }
+        
+        .status-badge {
+            display: block; margin-top: 12px; font-size: 0.8rem; font-weight: bold; color: var(--text-muted);
+        }
+
+        /* 聴覚・読み上げ専用エリア（CSSハックにより完全隠蔽、アクセシビリティのみ100%検知） */
+        .speech-only {
+            position: absolute;
+            color: transparent;
+            font-size: 0px;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
+
+        /* レスポンシブ */
+        @media (max-width: 480px) {
+            body {
+                padding: 20px 12px;
+            }
+            .container {
+                padding: 24px 20px;
+            }
+            h1 {
+                font-size: 1.3rem;
+            }
+            .judge-actions {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<article class="container">
+    <header>
+        <h1>116-117ページ：鎖国とはいうけれど 江戸時代の対外関係</h1>
+        <p class="subtitle">歴史学習：江戸幕府の成立と対外政策の変化</p>
+        
+        <div class="counter-panel">
+            📊 これまでの学習記録：
+            読んだ <span id="count-read" class="counter-val">確認中...</span> 回 / 
+            聞いた <span id="count-listen" class="counter-val">確認中...</span> 回
+        </div>
+    </header>
+
+    <div class="text-section" aria-hidden="true">
+        <section>
+            <h2 class="section-title">教科書本文</h2>
+            <p><strong>四つの窓口。</strong>江戸幕府の外交政策は「<strong>鎖国</strong>」と呼ばれていますが、国を完全に閉ざしたわけではありませんでした。日本人が海外に出たり帰国することは厳しく禁止されましたが、長崎・<strong>対馬藩</strong>（長崎県）・<strong>薩摩藩</strong>（鹿児島県）・<strong>松前藩</strong>（北海道）の4か所を窓口として、日本は異国や異民族とゆるやかにつながり、自国を中心とする国際関係を作り出しました。</p>
+            <p><strong>オランダ・中国との貿易。</strong>オランダ・中国とは、国交は結びませんでしたが、長崎で貿易が行われました。幕府は長崎に<strong>奉行所</strong>を置き、貿易を管理しました。長崎の貿易では、生糸・絹織物・薬・香木などが輸入され、銀・銅・<strong>俵物</strong>などが輸出されました。キリスト教の影響を防ぐため、ヨーロッパの書物は輸入が禁止されました。</p>
+            <p>オランダとの貿易は、商館のある出島で行われ、オランダ人は出島から出ることが許されませんでした。幕府は商館長に、ヨーロッパやアジアの情勢を報告することを義務付け（<strong>オランダ風説書</strong>）、海外の情報を独占しました。また、商館長は、将軍にあいさつをするため江戸へ出かけました。江戸滞在中は、日本の学者などが訪れ、西洋の知識を吸収しました。</p>
+            <p>中国では、17世紀前半に女真族（満州族）が清を建国し、明を滅ぼしました。中国からは民間の商船が長崎に来航し、貿易が行われました。中国人は長崎の町で生活をしていましたが、密貿易を防ぐため、17世紀後半から、出島の近くに造られた<strong>唐人屋敷</strong>に住まわされました。</p>
+            <p><strong>朝鮮との交流。</strong>豊臣秀吉の文禄・慶長の役により、日本と朝鮮との交流は途絶えました。しかし、江戸幕府の成立後、対馬藩の努力で朝鮮との国交が回復し、将軍の代わりごとに、祝いの使節（<strong>朝鮮通信使</strong>）が日本に派遣されるようになりました。およそ300人から500人におよぶ通信使の一行の中には、一流の学者や芸術家もおり、各地で日本の学者などと交流しました。</p>
+            <p>対馬藩は、朝鮮との交渉の窓口を務め、貿易を独占することを幕府から認められました。対馬藩は、朝鮮の釜山に設けられた<strong>倭館</strong>という居留地に役人を派遣し、朝鮮との連絡や貿易を行いました。輸入品は生糸・絹織物・朝鮮にんじんなどで、輸出品は銀や銅などでした。</p>
+        </section>
+
+        <hr class="section-border">
+
+        <section>
+            <h2 class="section-title">重要キーワード・資料解説</h2>
+            
+            <p>まずは、耳から絶対に整理しておきたい最重要キーワードの確認です。<br>
+            1つ目は「<strong>鎖国（さこく）</strong>」です。完全に国を閉ざしたのではなく、4つの窓口を開いていたのがポイントです。<br>
+            2つ目はその窓口となる3つの藩です。長崎県にゆかりのある「<strong>対馬藩（つしまはん）</strong>」、鹿児島県の「<strong>薩摩藩（さつまはん）</strong>」、北海道の「<strong>松前藩（まつまえはん）</strong>」です。漢字を間違えやすいので頭の中でしっかり書き順をイメージしましょう。<br>
+            3つ目は長崎の管理機関である「<strong>奉行所（ぶぎょうしょ）</strong>」と、ヨーロッパ情報を独占するための報告書「<strong>オランダ風説書（ふうせつがき）</strong>」です。<br>
+            4つ目は輸出品の「<strong>俵物（たわらもの）</strong>」、そして中国人を集めて住まわせた「<strong>唐人屋敷（とうじんやしき）</strong>」です。<br>
+            5つ目は朝鮮との交流です。使節の「<strong>朝鮮通信使（ちょうせんつうしんし）</strong>」と、釜山に作られた居留地である「<strong>倭館（わかん）</strong>」。倭館の「倭」という漢字は、人へんに「委」と書きますよ。ゴチャ混ぜにしないよう、しっかり頭に焼き付けましょう。</p>
+            
+            <hr class="item-border">
+            
+            <p>ここからは、先生のテストに出る「図や資料の周辺テキスト」の徹底攻略です。出題形式で確認していきますね。</p>
+            <p>問題です。幕府がオランダ商館長に報告させた、海外情勢の文書を何といいますか？<br>
+            正解は「<strong>オランダ風説書</strong>」です。幕府が何を狙ってこれを提出させたのか、覚えていますか？「海外の情報を独占するため」ですね。</p>
+            
+            <hr class="item-border">
+            
+            <p>問題です。長崎での貿易で、日本から輸出された海産物の干物をまとめたものを何といいますか？<br>
+            正解は「<strong>俵物（たわらもの）</strong>」です。では、その俵物の中身の具体例を3つ答えられますか？資料写真の下に小さく書いてありましたね。正解は「いりこ」「干しあわび」「ふかひれ」です。いりこは「なまこを煮て乾燥させたもの」という解説まで暗記しておきましょう。</p>
+            
+            <hr class="item-border">
+            
+            <p>問題です。17世紀後半、幕府が中国人を長崎の「唐人屋敷」に住まわせた理由は何でしょうか？<br>
+            正解は「密貿易を防ぐため」です。ただ住まわせたのではなく、周囲を堀で囲んで出入りを監視していたことも思い出してくださいね。</p>
+            
+            <hr class="item-border">
+            
+            <p>問題です。江戸時代、日本と朝鮮の交流において、双方の居留地や訪問に関する制限の違いは何でしょうか？<br>
+            資料の注釈からの出題です。日本側は釜山に「倭館」という居留地を置き役人を派遣しましたが、朝鮮側は日本を警戒していたため、日本の使節が首都である「漢城（ソウル）」まで入ることや、日本人が倭館の外へ出ることを禁止していました。</p>
+            
+            <hr class="item-border">
+            
+            <p>最後に、朝鮮通信使の交流エピソードからの出題です。広島県の福禅寺にある、通信使が「日東第一形勝」と絶賛し名付けた客殿の名前は何ですか？<br>
+            正解は「<strong>対潮楼（たいちょうろう）</strong>」です。</p>
+            <p>さあ、頭の中に江戸時代の4つの窓口と、そこを行き交う人々や資料の映像がはっきりと浮かびましたか？これで116ページと117ページの資料対策は完璧です。</p>
+        </section>
+
+        <div class="action-panel">
+            <div class="action-title">今日の歴史学習を記録しよう！</div>
+            <div class="judge-actions">
+                <button class="action-btn btn-read" onclick="submitLog('読んだ')">📖 読んだ！</button>
+                <button class="action-btn btn-listen" onclick="submitLog('聞いた')">🎧 聞いた！</button>
+            </div>
+            <span id="submit-status" class="status-badge">ボタンを押すとスプレッドシートに同期します</span>
+        </div>
+    </div>
+
+    <div class="speech-only">
+        <p>それでは、教科書百十六ページと百十七ページ「鎖国とはいうけれど 江戸時代の対外関係」に入ります。一度、画面から目を離して、そっと目を閉じてみましょう。十七世紀、江戸幕府が世界の国々とどのように繋がり、そしてどのような関係を築いていたのか、その壮大なストーリーに耳を澄ませてみましょう。</p>
+        <p>四つの窓口。江戸幕府の外交政策は「鎖国」と呼ばれていますが、国を完全に閉ざしたわけではありませんでした。日本人が海外に出たり帰国することは厳しく禁止されましたが、長崎・対馬藩・薩摩藩・松前藩の四か所を窓口として、日本は異国や異民族とゆるやかにつながり、自国を中心とする国際関係を作り出しました。</p>
+        <p>オランダ・中国との貿易。オランダ・中国とは、国交は結びませんでしたが、長崎で貿易が行われました。幕府は長崎に奉行所を置き、貿易を管理しました。長崎の貿易では、生糸・絹織物・くすり・こうぼく　などが輸入され、銀・銅・俵物などが輸出されました。キリスト教の影響を防ぐため、ヨーロッパの書物は輸入が禁止されました。</p>
+        <p>オランダとの貿易は、商館のある出島で行われ、オランダ人は出島から出ることが許されませんでした。幕府は商館長に、ヨーロッパやアジアの情勢を報告することを義務付け、オランダ風説書、海外の情報を独占しました。また、商館長は、将軍にあいさつをするため江戸へ出かけました。江戸滞在中は、日本の学者などが訪れ、西洋の知識を吸収しました。</p>
+        <p>中国では、十七世紀前半にじょしん族（満州族）が清を建国し、明を滅ぼしました。中国からは民間の商船が長崎に来航し、貿易が行われました。中国人は長崎の町で生活をしていましたが、密貿易を防ぐため、十七世紀後半から、出島の近くに造られた唐人屋敷に住まわされました。</p>
+        <p>朝鮮との交流。豊臣秀吉の文禄・慶長の役により、日本と朝鮮との交流は途絶えました。しかし、江戸幕府の成立後、対馬藩の努力で朝鮮との国交が回復し、将軍の代わりごとに、祝いの使節、朝鮮通信使が日本に派遣されるようになりました。およそ三百人から五百人におよぶ通信使の一行の中には、一流の学者や芸術家もおり、各地で日本の学者などと交流しました。</p>
+        <p>対馬藩は、朝鮮との交渉の窓口を務め、貿易を独占することを幕府から認められました。対馬藩は、朝鮮の釜山に設けられた倭館という居留地に役人を派遣し、朝鮮との連絡や貿易を行いました。輸入品は生糸・絹織物・朝鮮にんじんなどで、輸出品は銀や銅などでした。</p>
+        <p>はい、本文の朗読はここまでです。目は閉じたままにしてくださいね。ここからは、定期テストで差がつく「図や写真、資料の罠」を脳内に読み込んでいきますよ。頭の中に、百十六ページと百十七ページの地図やイラストをパッと浮かべてみましょう。</p>
+        <p>まずは、耳から絶対に整理しておきたい最重要キーワードの確認です。ひとつ目は「鎖国」です。完全に国を閉ざしたのではなく、四つの窓口を開いていたのがポイントです。ふたつ目はその窓口となる三つの藩です。長崎県にゆかりのある「対馬藩」、鹿児島県の「薩摩藩」、北海道の「松前藩」です。漢字を間違えやすいので頭の中でしっかり書き順をイメージしましょう。みっつ目は長崎の管理機関である「奉行所」と、ヨーロッパ情報を独占するための報告書「オランダ風説書」です。よっつ目は輸出品の「俵物」、そして中国人を集めて住まわせた「唐人屋敷」です。いつつ目は朝鮮との交流です。使節の「朝鮮通信使」と、ぷさん　に作られた居留地である「倭館」。倭館の「倭」という漢字は、人へんに「委」と書きますよ。ゴチャ混ぜにしないよう、しっかり頭に焼き付けましょう。</p>
+        <p>ここからは、先生のテストに出る「図や資料の周辺テキスト」の徹底攻略です。出題形式で確認していきますね。</p>
+        <p>問題です。幕府がオランダ商館長に報告させた、海外情勢の文書を何といいますか？正解は「オランダ風説書」です。幕府が何を狙ってこれを提出させたのか、覚えていますか？「海外の情報を独占するため」ですね。</p>
+        <p>問題です。長崎での貿易で、日本から輸出された海産物の干物をまとめたものを何といいますか？正解は「俵物」です。では、その俵物の中身の具体例を三つ答えられますか？資料写真の下に小さく書いてありましたね。正解は「いりこ」「干しあわび」「ふかひれ」です。いりこは「なまこを煮て乾燥させたもの」という解説まで暗記しておきましょう。</p>
+        <p>問題です。十七世紀後半、幕府が中国人を長崎の「唐人屋敷」に住まわせた理由は何でしょうか？正解は「密貿易を防ぐため」です。ただ住まわせたのではなく、周囲を堀で囲んで出入りを監視していたことも思い出してくださいね。</p>
+        <p>問題です。江戸時代、日本と朝鮮の交流において、双方の居留地や訪問に関する制限の違いは何でしょうか？資料の注釈からの出題です。日本側はプサンに「倭館」という居留地を置き役人を派遣しましたが、朝鮮側は日本を警戒していたため、日本の使節が首都である「漢城（ソウル）」まで入ることや、日本人が倭館の外へ出ることを禁止していました。</p>
+        <p>最後に、朝鮮通信使の交流エピソードからの出題です。広島県の福禅寺にある、通信使が「日東第一形勝」と絶賛し名付けた客殿の名前は何ですか？正解は「対潮楼」です。</p>
+        <p>さあ、頭の中に江戸時代の四つの窓口と、そこを行き交う人々や資料の映像がはっきりと浮かびましたか？これで百十六ページと百十七ページの資料対策は完璧です。</p>
+        <p>はい、それではゆっくりと目を開けてみてください。</p>
+    </div>
+</article>
+
+<script>
+    // ==========================================
+    // 🛠️ 設定・データエリア
+    // ==========================================
+    const WEB_APP_URL = ""; 
+    const SUBJECT_NAME = "歴史";
+    const PAGE_NAME = "116江戸幕府の成立と対外政策の変化";
+    const QUIZ_ID = "main_text"; // 固定 of テキストID
+    const LAYOUT_NAME = "リーディング・リスニング";
+
+    let isSubmitting = false;
+
+    // 効果音生成システム (Web Audio API)
+    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    function playSound() {
+        if (audioCtx.state === 'suspended') audioCtx.resume();
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+
+        // ✨ 成功時のピンポン♪ サウンド
+        osc.frequency.setValueAtTime(523.25, audioCtx.currentTime); // ド
+        osc.frequency.setValueAtTime(659.25, audioCtx.currentTime + 0.15); // ミ
+        gain.gain.setValueAtTime(0.3, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.4);
+        osc.start(); osc.stop(audioCtx.currentTime + 0.4);
+    }
+
+    // ページ読み込み時に現在のカウントをGASから取得
+    window.addEventListener('DOMContentLoaded', () => {
+        fetchCounts();
+    });
+
+    // 【★追加】GASから返ってきたカウントデータを受け取る関数
+    window.handleCountResponse = function(data) {
+        if (data && data.status === "success") {
+            document.getElementById('count-read').innerText = data.readCount;
+            document.getElementById('count-listen').innerText = data.listenCount;
+        } else {
+            setCounterError();
+        }
+    };
+
+    // 【★書き換え】カウントの取得処理 (JSONP方式に変更)
+    function fetchCounts() {
+        const url = `${WEB_APP_URL}?page=${encodeURIComponent(PAGE_NAME)}&callback=handleCountResponse`;
+        
+        // scriptタグを動的に生成して通信を成立させる
+        const script = document.createElement('script');
+        script.src = url;
+        script.onerror = () => {
+            setCounterError();
+        };
+        
+        document.body.appendChild(script);
+        document.body.removeChild(script); // 実行後にタグを削除
+    }
+
+    function setCounterError() {
+        document.getElementById('count-read').innerText = "0";
+        document.getElementById('count-listen').innerText = "0";
+    }
+
+    // データの送信処理 (doPostへのアクセス)
+    function submitLog(statusType) {
+        if (isSubmitting) return;
+        isSubmitting = true;
+
+        const badge = document.getElementById('submit-status');
+        badge.innerText = `⏳ ${statusType}記録を送信中...`;
+        playSound();
+
+        const payload = {
+            subject: SUBJECT_NAME,
+            page: PAGE_NAME,
+            quizId: QUIZ_ID,
+            layout: LAYOUT_NAME,
+            status: statusType
+        };
+
+        fetch(WEB_APP_URL, {
+            method: "POST",
+            mode: "no-cors",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload)
+        })
+        .then(() => {
+            badge.innerText = `✨ ${statusType}をスプレッドシートに記録しました！`;
+            isSubmitting = false;
+            // 送信完了後、最新のカウントを再取得して画面を更新
+            setTimeout(fetchCounts, 1000);
+        })
+        .catch(err => {
+            console.error(err);
+            badge.innerText = "⚠️ 送信に失敗しました。再試行してください。";
+            isSubmitting = false;
+        });
+    }
+</script>
+</body>
+</html>
